@@ -6,7 +6,6 @@ import pro.sky.receptapp.model.ingredient;
 import java.util.List;
 
 public class RecipeDTO {
-
     private final int id;
     private final String title;
     private final int cookingTime;
@@ -20,8 +19,6 @@ public class RecipeDTO {
         this.ingredients = ingredients;
         this.steps = steps;
     }
-
-
 
     public int getId() {
         return id;
@@ -46,4 +43,6 @@ public class RecipeDTO {
         return new RecipeDTO(id, recipe.getTitle(), recipe.getCookingTime(), recipe.getIngredients(),
                 recipe.getSteps());
     }
+
+
 }

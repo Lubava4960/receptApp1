@@ -1,19 +1,17 @@
-package pro.sky.receptapp.controllers;
+package pro.sky.receptapp.service.controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import pro.sky.receptapp.dto.infoDTO;
+import pro.sky.receptapp.dto.InfoDTO;
 
 
-import javax.sound.sampled.DataLine;
 import java.time.LocalDate;
 
 @RestController
 
 public class FirstController {
 
-    private static final infoDTO INFO_DTO = new infoDTO("Lubov Martyanova", "Recipes Add", LocalDate.of(2023, 03, 05), " Red for managing recipe");
+    private static final InfoDTO INFO_DTO = new InfoDTO("Lubov Martyanova", "Recipes Add", LocalDate.of(2023, 03, 05), " Red for managing recipe");
 
     @GetMapping
     public String nameProject() {
@@ -24,7 +22,7 @@ public class FirstController {
 
 
     @GetMapping("/info")
-    public infoDTO info() {
+    public InfoDTO info() {
         return INFO_DTO;
 
     }

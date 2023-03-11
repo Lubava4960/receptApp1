@@ -1,6 +1,7 @@
 GET http://localhost:8080/
 ###
-GET http://localhost:8080/recipe/3
+GET http://localhost:8080/recipe/4
+
 ###
 GET http://localhost:8080/info
 ###
@@ -8,12 +9,12 @@ POST http://localhost:8080/recipe
 Content-Type: application/json
 
 {
-  "Title": "кулебяка ",
+  "Title": "каша",
   "cookingTime": "30",
   "ingredients": [
     {
-      "title": "капуста",
-      "number": 1,
+      "title": "гречка",
+      "number": 300,
       "measure": "г"
     }
     ],
@@ -24,3 +25,29 @@ Content-Type: application/json
   ]
 
       }
+###
+GET http://localhost:8080/recipe
+###
+GET http://localhost:8080/recipe/0
+###
+DELETE http://localhost:8080/recipe/0
+
+###
+GET http://localhost:8080/ingredient
+###
+GET http://localhost:8080/ingredient/14
+###
+POST http://localhost:8080/ingredient
+Content-Type: application/json
+
+
+{
+"title": "макароны",
+"number": 100,
+"measure": "мл"
+}
+
+###
+DELETE http://localhost:8080/ingredient/5
+
+

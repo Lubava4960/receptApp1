@@ -1,12 +1,15 @@
-package pro.sky.receptapp.model;
+package pro.sky.receptapp.service;
 
-public class ingredient {
+import pro.sky.receptapp.dto.IngredientDTO;
 
+import java.util.List;
+
+public class Ingredient {
     private String title;
     private int number;
     private String measure;
 
-    public ingredient(String title, int number, String measure) {
+    public void ingredient(String title, int number, String measure) {
         this.title = title;
         this.number = number;
         this.measure = measure;
@@ -35,4 +38,10 @@ public class ingredient {
     public void setMeasure(String measure) {
         this.measure = measure;
     }
+
+    public void put(int id, Ingredient ingredient) {
+        IngredientDTO.from(id, ingredient);
+    }
+
+
 }
