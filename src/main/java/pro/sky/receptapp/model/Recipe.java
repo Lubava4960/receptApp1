@@ -3,6 +3,7 @@ package pro.sky.receptapp.model;
 import java.util.List;
 
 public class Recipe {
+    public int getCookingTime;
     private String title;
     private int cookingTime;
     private List<ingredient> ingredients;

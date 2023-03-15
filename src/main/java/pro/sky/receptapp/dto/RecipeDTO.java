@@ -20,7 +20,7 @@ public class RecipeDTO {
         this.steps = steps;
     }
 
-    public int getId() {
+      public int getId() {
         return id;
     }
 
@@ -39,9 +39,10 @@ public class RecipeDTO {
     public List<String> getSteps() {
         return steps;
     }
+
     public static RecipeDTO from(int id, Recipe recipe){
-        return new RecipeDTO(id, recipe.getTitle(), recipe.getCookingTime(), recipe.getIngredients(),
-                recipe.getSteps());
+        return new RecipeDTO(id, recipe.getTitle(), recipe.getCookingTime, (List<ingredient>) recipe.getIngredients(),
+                (List<String>) recipe.getSteps());
     }
 
 

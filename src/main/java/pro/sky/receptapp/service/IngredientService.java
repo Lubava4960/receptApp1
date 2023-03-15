@@ -2,7 +2,6 @@ package pro.sky.receptapp.service;
 
 import org.springframework.stereotype.Service;
 import pro.sky.receptapp.dto.IngredientDTO;
-import pro.sky.receptapp.dto.RecipeDTO;
 import pro.sky.receptapp.exception.ingredientNotFoundException;
 import pro.sky.receptapp.model.Recipe;
 
@@ -16,6 +15,15 @@ public class IngredientService {
 
     private int idCounter = 0;
     private static final Map<Integer, Ingredient> ingredients = new HashMap<>();
+
+    public static IngredientDTO updateIngredient(int id, Ingredient ingredient) {
+        Recipe existingIngredient = ingredient.getIngredient(id);
+        if(existingIngredient==null){
+            throw new IngredientNotFoundException();
+        }
+        ingredient.put(id, ingredient);
+        return IngredientDTO.from(id, ingredient);
+    }
 
 
     public IngredientDTO addIngredient(Ingredient ingredient){
