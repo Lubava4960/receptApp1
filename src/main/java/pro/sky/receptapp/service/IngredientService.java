@@ -17,7 +17,7 @@ public class IngredientService {
     private static final Map<Integer, Ingredient> ingredients = new HashMap<>();
 
     public static IngredientDTO updateIngredient(int id, Ingredient ingredient) {
-        Recipe existingIngredient = ingredient.getIngredient(id);
+       IngredientDTO existingIngredient = ingredient.getIngredient(id);
         if(existingIngredient==null){
             throw new IngredientNotFoundException();
         }
@@ -32,7 +32,7 @@ public class IngredientService {
         return IngredientDTO.from(id, ingredient);
     }
 
-    public IngredientDTO getIngredient(int id){
+    public static IngredientDTO getIngredient(int id){
         Ingredient ingredient = ingredients.get(id);
         if (ingredient != null){
             return IngredientDTO.from(id, ingredient);

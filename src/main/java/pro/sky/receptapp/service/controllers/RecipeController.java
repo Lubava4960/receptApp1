@@ -7,6 +7,7 @@ import pro.sky.receptapp.dto.RecipeDTO;
 import pro.sky.receptapp.model.Recipe;
 import pro.sky.receptapp.service.RecipeService;
 
+import java.util.LinkedHashMap;
 import java.util.List;
 
 @RestController
@@ -65,7 +66,7 @@ import java.util.List;
               summary = "Можно удалить рецепт",
               description = " по id"
       )
-      public  RecipeDTO deleteRecipe(@PathVariable("id") int id){
+      public  RecipeDTO deleteRecipe(@PathVariable("id") Integer id){
           return recipeService.deleteDyId(id);
       }
 

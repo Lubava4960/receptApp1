@@ -9,19 +9,19 @@ POST http://localhost:8080/recipe
 Content-Type: application/json
 
 {
-  "Title": "каша",
-  "cookingTime": "30",
+  "title": "cуп",
+  "cookingTime": "40",
   "ingredients": [
     {
-      "title": "гречка",
+      "title": "мясо",
       "number": 300,
       "measure": "г"
     }
     ],
   "steps": [
-    "Step 1",
-    "Step 2",
-    "Step 3"
+    "закинуть мясо",
+    "посолить",
+    "довести до кипения"
   ]
 
       }
@@ -35,7 +35,8 @@ DELETE http://localhost:8080/recipe/0
 ###
 GET http://localhost:8080/ingredient
 ###
-GET http://localhost:8080/ingredient/14
+GET http://localhost:8080/ingredient/1
+
 ###
 POST http://localhost:8080/ingredient
 Content-Type: application/json
@@ -48,6 +49,6 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:8080/ingredient/5
+DELETE http://localhost:8080/ingredient/0
 
 

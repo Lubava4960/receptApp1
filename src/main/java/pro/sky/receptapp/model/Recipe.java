@@ -1,6 +1,11 @@
 package pro.sky.receptapp.model;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 import java.util.List;
+@AllArgsConstructor
+@NoArgsConstructor
 
 public class Recipe {
     public int getCookingTime;
