@@ -9,7 +9,7 @@ POST http://localhost:8080/recipe
 Content-Type: application/json
 
 {
-  "title": "cуп",
+  "title": "каша",
   "cookingTime": "40",
   "ingredients": [
     {

@@ -3,35 +3,38 @@ package pro.sky.receptapp.service;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
 @Service
-public abstract class FilesServiceImpl implements FilesService {
+public class FilesServiceImpl implements FilesService {
 
 
-    @Value("$ {path.to.data.file}")
+
+
+
+    @Value("${path.to.data.file}")
     private String dataFilePath;
 
 
-    @Value("$ {path.to.data.file}")
+    @Value("${name.of.data.file}" )
     private String dataFileName;
 
 
 
-public boolean saveToFile(String json) {
+    public boolean saveToFile(String json) {
     try {
         cleanDataFile();
         Files.writeString(Path.of(dataFilePath, dataFileName), json);
-        return true;
     } catch (IOException e) {
         e.printStackTrace();
-        return false;
     }
+        return false;
 }
 
-    public String readFrameFile(){
+    public String readFromFile(){
             try {
                 return Files.readString(Path.of(dataFilePath,dataFileName));//чтение
             }catch (IOException e){
@@ -41,21 +44,23 @@ public boolean saveToFile(String json) {
 
 
 
-public boolean cleanDataFile(){
-    try {
-        Path path = Path.of(dataFilePath);
+    public boolean cleanDataFile(){
+            try {
+        Path path = Path.of(dataFilePath,dataFileName);
         Files.deleteIfExists(path);
         Files.createFile(path);
-        return true;
-    }catch (IOException e){
+            }catch (IOException e){
         e.printStackTrace();
+            }
         return false;
+
+
     }
+    @Override
 
-    }
-
-
-
+       public File getDataFile(){
+           return new File(dataFilePath + "/" + dataFileName);
+       }
 
 
 
