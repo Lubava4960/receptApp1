@@ -6,7 +6,7 @@ import pro.sky.receptapp.dto.IngredientDTO;
 import pro.sky.receptapp.service.Ingredient;
 import pro.sky.receptapp.service.IngredientService;
 
-import java.util.HashMap;
+
 import java.util.List;
 
 
@@ -19,7 +19,7 @@ import java.util.List;
     public class IngredientController {
     private final IngredientService ingredientService;
 
-    private HashMap<Object, Object> ingredients;
+
 
 
 
@@ -43,7 +43,7 @@ import java.util.List;
     )
     public IngredientDTO getIngredient(@PathVariable("id") int id){
 
-        return ingredientService.getIngredient(id);
+        return IngredientService.getIngredient(id);
     }
 
     @PostMapping

@@ -12,16 +12,21 @@ import java.util.Map;
 
 @Service
 public class IngredientService {
-
+    private static final String STORE_FILE_NAME = "ingredients";
+    public FilesService filesService;
     private int idCounter = 0;
     private static final Map<Integer, Ingredient> ingredients = new HashMap<>();
+    public IngredientService(FilesService filesService) {
+        this.filesService = filesService;
 
+    }
     public static IngredientDTO updateIngredient(int id, Ingredient ingredient) {
        IngredientDTO existingIngredient = ingredient.getIngredient(id);
         if(existingIngredient==null){
             throw new IngredientNotFoundException();
         }
         ingredient.put(id, ingredient);
+        FilesService.saveToFile(STORE_FILE_NAME, ingredients);
         return IngredientDTO.from(id, ingredient);
     }
 
@@ -29,6 +34,7 @@ public class IngredientService {
     public IngredientDTO addIngredient(Ingredient ingredient){
         int id = idCounter++;
         ingredient.put(id, ingredient);
+        FilesService.saveToFile(STORE_FILE_NAME, ingredients);
         return IngredientDTO.from(id, ingredient);
     }
 
@@ -42,6 +48,7 @@ public class IngredientService {
 
     public IngredientDTO deleteById(int id) {
         Ingredient existingIngredient=ingredients.remove(id);
+        FilesService.saveToFile(STORE_FILE_NAME, ingredients);
         if (existingIngredient==null){
             throw new ingredientNotFoundException();
         }
@@ -56,4 +63,20 @@ public class IngredientService {
         }
         return result;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+   // @PostConstruct
+    //private void init() throws IOException {
+   //     readFromFileIngredient();
+   // }
 }
