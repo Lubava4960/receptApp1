@@ -13,14 +13,18 @@ import java.io.IOException;
 import java.util.*;
 
 
+
+
 @Service
        public class RecipeService {
     public FilesService filesService;
 
     private int idCounter = 0;
     private static final Map<Integer, Recipe> recipes = new HashMap<>();
+    private Map<Integer, Ingredient> Recipe;
 
     public RecipeService(FilesService filesService) {
+
         this.filesService = filesService;
     }
 
@@ -66,13 +70,14 @@ import java.util.*;
         return null;
     }
 
-    private void saveToFile(){
+    private boolean saveToFile(){
         try {
             String json = new ObjectMapper().writeValueAsString(recipes);
-            filesService.saveToFile(json);
+            FilesService.saveToFile(json, Recipe);
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
+        return false;
     }
     private void readFromFile() throws IOException {
         String json = filesService.readFromFile();

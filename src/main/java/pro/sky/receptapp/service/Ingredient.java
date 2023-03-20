@@ -11,7 +11,8 @@ public record Ingredient(String title, int number, String measure) {
     }
 
 
-    public IngredientDTO getIngredient(int id) {
-        return IngredientService.getIngredient(id);
+    public Ingredient getIngredient(int id) {
+
+        return IngredientService.ingredients.get(id);
     }
 }

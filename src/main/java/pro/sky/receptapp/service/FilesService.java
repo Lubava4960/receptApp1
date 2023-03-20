@@ -2,14 +2,21 @@ package pro.sky.receptapp.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Map;
+
 
 public interface FilesService {
 
+
     boolean cleanDataFile();
 
-    String readFromFile()throws IOException;
+    String readFromFile() throws IOException;
 
-    boolean saveToFile(String json);
+    static void saveToFile(String json, Map<Integer, Ingredient> ingredients) {
+    }
+    boolean cleanIngredientFile();
 
     File getDataFile();
+
+
 }
