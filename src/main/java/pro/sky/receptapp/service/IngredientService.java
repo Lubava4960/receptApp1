@@ -15,13 +15,13 @@ public class IngredientService {
     private static final String STORE_FILE_NAME = "ingredients";
     public FilesService filesService;
     private int idCounter = 0;
-    private static final Map<Integer, Ingredient> ingredients = new HashMap<>();
+    static final Map<Integer, Ingredient> ingredients = new HashMap<>();
     public IngredientService(FilesService filesService) {
         this.filesService = filesService;
 
     }
     public static IngredientDTO updateIngredient(int id, Ingredient ingredient) {
-       IngredientDTO existingIngredient = ingredient.getIngredient(id);
+       Ingredient existingIngredient = ingredient.getIngredient(id);
         if(existingIngredient==null){
             throw new IngredientNotFoundException();
         }
