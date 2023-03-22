@@ -35,7 +35,7 @@ DELETE http://localhost:8080/recipe/0
 ###
 GET http://localhost:8080/ingredient
 ###
-GET http://localhost:8080/ingredient/4
+GET http://localhost:8080/ingredient/1
 
 ###
 POST http://localhost:8080/ingredient
