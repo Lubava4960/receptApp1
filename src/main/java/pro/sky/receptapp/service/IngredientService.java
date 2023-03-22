@@ -12,24 +12,22 @@ import java.util.Map;
 
 @Service
 public class IngredientService {
-
     private static final String STORE_FILE_NAME = "ingredients";
-    private FilesService filesService;
-
-    private static int idCounter = 0;
-    static final Map<Integer, Ingredient> ingredients = new HashMap<>();
+    public FilesService filesService;
+    private int idCounter = 0;
+    private static final Map<Integer, Ingredient> ingredients = new HashMap<>();
     public IngredientService(FilesService filesService) {
         this.filesService = filesService;
 
     }
-    public static IngredientDTO updateIngredient(int id, Ingredient recipe) {
-       Ingredient existingIngredient = ingredients.get(id);
+    public static IngredientDTO updateIngredient(int id, Ingredient ingredient) {
+       IngredientDTO existingIngredient = ingredient.getIngredient(id);
         if(existingIngredient==null){
             throw new IngredientNotFoundException();
         }
-        ingredients.put(id, recipe);
+        ingredient.put(id, ingredient);
         FilesService.saveToFile(STORE_FILE_NAME, ingredients);
-        return IngredientDTO.from(id, recipe);
+        return IngredientDTO.from(id, ingredient);
     }
 
 
